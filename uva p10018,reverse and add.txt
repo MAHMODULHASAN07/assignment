@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main(){
+    long long  num,a,reverse;
+    int t,i;
+    while(scanf("%d",&t)==1){
+        while(t--) {
+        scanf("%lld",&num);
+        a=num;
+       int count=0;
+        while(1)
+        {
+            reverse=0;
+            while(num!=0)
+            {
+               reverse=reverse*10+num%10;
+               num=num/10;
+            }
+            if(reverse==a)
+            break;
+            else
+            {
+            num=reverse+a;
+            a=reverse+a;
+            count++;
+            }
+        }
+    printf("%lld %lld\n",count,a);
+        }
+    }
+   return 0;
+}
