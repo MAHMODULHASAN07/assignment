@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    long ar[10],i,sum,ans[6],min;
+    char s[4],cmb[6][4]={"BCG","BGC","CBG","CGB","GBC","GCB"};
+    while(scanf("%ld",&ar[1]) != EOF)
+    {
+        sum = ar[1];       
+        for(i=2;i<10;i++)
+        {
+            scanf("%ld",&ar[i]);
+            sum += ar[i];
+        }
+        ans[0] = sum - ar[1] - ar[6] - ar[8];
+        min = ans[0];
+        strcpy(s,cmb[0]);
+        ans[1] = sum - ar[1] - ar[5] - ar[9];
+         
+        
+        ans[2] = sum - ar[3] - ar[4] - ar[8];
+        ans[3] = sum - ar[3] - ar[5] - ar[7];
+         
+        ans[4] = sum - ar[2] - ar[4] - ar[9];
+        ans[5] = sum - ar[2] - ar[6] - ar[7];
+ 
+        for(i=1;i<6;i++)
+        {
+            if(min>ans[i])
+            {
+                min = ans[i];
+                strcpy(s,cmb[i]);
+            }
+        }
+         
+        printf("%s %ld\n",s,min);
+    }
+    return 0;
+}
